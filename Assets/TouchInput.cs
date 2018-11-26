@@ -11,8 +11,10 @@ public class TouchInput : MonoBehaviour {
     private Text textComponent;
     // メインカメラ
     private Camera cam;
-    // 画像のプレハブ
+    // スプライトのプレハブ
     public GameObject prefab;
+    // スプライトのプレハブ
+    public GameObject prefabDrami;
 
     // Use this for initialization
     void Start () {
@@ -38,9 +40,12 @@ public class TouchInput : MonoBehaviour {
                     + worldpos.x + ","
                     + worldpos.y + ")" + "\n";
 
+                // 押した瞬間のみ
                 if (touch.phase == TouchPhase.Began)
                 {
-                    // 指定したワールド座標にプレハブから複製
+                    // ０～２を超えない範囲のランダム
+                    int rand = Random.Range(0, 2);
+                    // 指定位置にゲームオブジェクトを生成
                     Instantiate(prefab, worldpos, Quaternion.identity);
                 }
 
