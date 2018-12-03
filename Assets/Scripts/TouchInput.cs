@@ -46,7 +46,10 @@ public class TouchInput : MonoBehaviour {
                     // ０～２を超えない範囲のランダム
                     int rand = Random.Range(0, 2);
                     // 指定位置にゲームオブジェクトを生成
-                    Instantiate(prefab, worldpos, Quaternion.identity);
+                    if (rand == 0)
+                        Instantiate(prefab, worldpos, Quaternion.identity);
+                    else
+                        Instantiate(prefabDrami, worldpos, Quaternion.identity);
                 }
 
                 // 文字列の後ろに文字を追加
